@@ -2,6 +2,7 @@
 #define COMPUTADORA_H
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -24,6 +25,17 @@ public:
     string getSO();
     int getMemoriaRam();
     string getProcesador();
+
+    friend ostream& operator<<(ostream &out, const Computadora &c){
+        out << left;
+        out << setw(10) << c.marca;
+        out << setw(10) << c.sistemaOperativo;
+        out << setw(5) << c.memoriaRam;
+        out << setw(10) << c.procesador;
+        out << endl;
+        
+        return out;
+    }
 };
 
 #endif
