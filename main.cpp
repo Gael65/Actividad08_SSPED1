@@ -5,18 +5,24 @@
 using namespace std;
 
 int main(){
-
     Laboratorio myLab;
 
     Computadora pc0 = Computadora("Toshiba", "Windows", 16, "Core I10");
     Computadora pc1 = Computadora("Lenovo", "Linux", 8, "Core I5");
     Computadora pc2 = Computadora("Apple", "macOS", 8, "Core I5");
+    Computadora pc3;
 
-    myLab.agregarFinal(pc0);
-    myLab.agregarFinal(pc1);
-    myLab.agregarFinal(pc2);
+    cin >> pc3; //Capturamos una computadora con el operador sobrecargado
 
-    myLab.mostrar();
+    myLab << pc0;
+    myLab << pc1;
+    myLab << pc2;
+
+    cout << endl;
+    cout << pc3; //Mostramos una computadora con el operador sobrecragado (pc3)
+    cout << endl;
+
+    myLab.mostrar(); //Mostramos el resto de computadoras mediante la función mostrar
 
     return 0;
 }

@@ -36,6 +36,24 @@ public:
         
         return out;
     }
+
+    friend istream& operator>>(istream &in, Computadora &c){
+        cout << "Marca: ";
+        getline(cin, c.marca);
+
+        cout << "Sistema operativo: ";
+        getline(cin, c.sistemaOperativo);
+
+        cout << "Memoria RAM: ";
+        cin >> c.memoriaRam;
+
+        cin.ignore();
+
+        cout << "Procesador: ";
+        getline(cin, c.procesador);
+        
+        return in;
+    }
 };
 
 #endif
