@@ -7,7 +7,10 @@ using namespace std;
 int main(){
     Laboratorio myLab;
 
-    Computadora pc0 = Computadora("Toshiba", "Windows", 16, "Core I10");
+    myLab.recuperar(); //Comentar esta línea para que funcione respaldar()
+    myLab.mostrar(); //Comentar esta línea para que funcione respaldar()
+
+    /*Computadora pc0 = Computadora("Toshiba", "Windows", 16, "Core I10");
     Computadora pc1 = Computadora("Lenovo", "Linux", 8, "Core I5");
     Computadora pc2 = Computadora("Apple", "macOS", 8, "Core I5");
     Computadora pc3;
@@ -26,7 +29,7 @@ int main(){
     myLab.respaldar_tabla();
     myLab.respaldar();
 
-    myLab.mostrar(); //Mostramos el resto de computadoras mediante la función mostrar
+    myLab.mostrar(); //Mostramos el resto de computadoras mediante la función mostrar*/
 
     return 0;
 }

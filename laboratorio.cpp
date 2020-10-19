@@ -45,6 +45,36 @@ void Laboratorio::respaldar() {
     archivo.close();
 }
 
+void Laboratorio::recuperar() {
+    ifstream archivo("computadoras.txt");
+    if(archivo.is_open()) {
+        string temp;
+        int ram;
+        Computadora c;
+
+        while(true) {
+            getline(archivo, temp);
+            if (archivo.eof()) {
+                break;
+            }
+            c.setMarca(temp);
+
+            getline(archivo, temp);
+            c.setSO(temp);
+
+            getline(archivo, temp);
+            ram = stoi(temp);
+            c.setMemoriaRam(ram);
+
+            getline(archivo, temp);
+            c.setProcesador(temp);
+
+            agregarFinal(c);
+        }
+    }
+    archivo.close();
+}
+
 void Laboratorio::mostrar(){
     cout << left;
     cout << setw(10) << "Marca";
