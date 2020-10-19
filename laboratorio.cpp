@@ -1,4 +1,5 @@
 #include "laboratorio.h"
+#include <fstream>
 
 Laboratorio::Laboratorio(){
     contador = 0;
@@ -13,6 +14,37 @@ void Laboratorio::agregarFinal(const Computadora &c){
         cout << "Arreglo lleno..." << endl;
 }
 
+void Laboratorio::respaldar_tabla() {
+    ofstream archivo("computadoras_tabla.txt");
+    if (archivo.is_open()) {
+        archivo << left;
+        archivo << setw(10) << "Marca";
+        archivo << setw(10) << "S.O.";
+        archivo << setw(5) << "RAM";
+        archivo << setw(10) << "Procesador";
+        archivo << endl;
+        for(size_t i = 0; i < contador; i++){
+            Computadora &c = computadoras[i];
+            archivo << c;
+        }
+    }
+    archivo.close();
+}
+
+void Laboratorio::respaldar() {
+    ofstream archivo("computadoras.txt");
+    if (archivo.is_open()) {
+        for (size_t i = 0; i < contador; i++) {
+            Computadora &c = computadoras[i];
+            archivo << c.getMarca() << endl;
+            archivo << c.getSO() << endl;
+            archivo << c.getMemoriaRam() << endl;
+            archivo << c.getProcesador() << endl;
+        }
+    }
+    archivo.close();
+}
+
 void Laboratorio::mostrar(){
     cout << left;
     cout << setw(10) << "Marca";
@@ -23,10 +55,5 @@ void Laboratorio::mostrar(){
     for(size_t i = 0; i < contador; i++){
         Computadora &c = computadoras[i];
         cout << c;
-        /*cout << "Marca: " << c.getMarca() << endl;
-        cout << "Sistema operativo: " << c.getSO() << endl;
-        cout << "Memoria RAM: " << c.getMemoriaRam() << endl;
-        cout << "Procesador: " << c.getProcesador() << endl;
-        cout << endl;*/
     }
 }

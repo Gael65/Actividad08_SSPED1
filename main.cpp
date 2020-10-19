@@ -17,10 +17,14 @@ int main(){
     myLab << pc0;
     myLab << pc1;
     myLab << pc2;
+    myLab << pc3;
 
     cout << endl;
     cout << pc3; //Mostramos una computadora con el operador sobrecragado (pc3)
     cout << endl;
+
+    myLab.respaldar_tabla();
+    myLab.respaldar();
 
     myLab.mostrar(); //Mostramos el resto de computadoras mediante la función mostrar
 
